@@ -1,0 +1,16 @@
+.myBody {
+
+    
+    border: 2px solid black;
+    border-radius: 10px;
+   background-color: black;
+   opacity: 0.8;
+   color: white;
+   margin: 0px;
+   padding: 50px;
+}
+
+.col-12{
+    padding: 0px !important;
+   
+}

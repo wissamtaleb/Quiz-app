@@ -1,0 +1,23 @@
+.form{
+    margin-top: 50px;
+    text-align: left;
+    align-items: left;
+    margin-left:0px;
+    
+}
+
+.myLabel{
+    text-align: right;
+    margin-right: 30px;
+    width:100px;
+}
+
+h1{
+    align-items: left;
+    text-align: left;
+}
+
+.text-box{
+    width:350px;
+}
+
