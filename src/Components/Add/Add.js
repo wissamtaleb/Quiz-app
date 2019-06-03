@@ -8,8 +8,8 @@ import QuestionAdd from '../../Classes/QuestionAdd'
 
 class Add extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             questionValue: "",
@@ -17,7 +17,8 @@ class Add extends Component{
             answer2: "",
             answer3: "",
             rightAnswer: -5,
-            difficulty: 1
+            difficulty: 1,
+            isLogged: props.isLogged
         }
 
     }
@@ -63,8 +64,15 @@ class Add extends Component{
 
 
 
+    toLogin(e){
+        e.preventDefault();
+        this.props.navigateToHome();
+    }
 
     render(){
+        if(!this.state.isLogged){
+            return (<h1>Your are NOT logged in <a  href="#" onClick = {(e) => this.toLogin(e)}>LogIn</a></h1>)
+        }
         return (
             
   <div>
@@ -73,7 +81,7 @@ class Add extends Component{
       <form className = "form">  
             <label className = "myLabel">Question:  </label>
           
-          <input type = "text" name ="question" className = "text-box" value={this.state.question} onChange = {(event) => this.questionChange(event)}/><br/><br/><br/>
+          <input type = "text" name ="question" className = "question-box" value={this.state.question} onChange = {(event) => this.questionChange(event)}/><br/><br/><br/>
 
          <label className = "myLabel">Answer 1:  </label> <input type = "radio" name = "rightAnswer" value ="0" onChange = {this.handleChange('rightAnswer')}/><input className = "text-box" type = "text" name="answer1" value={this.state.answer1} onChange = {this.handleChange('answer1')}  /><br/><br/>
          <label className = "myLabel">Answer 2:  </label> <input type = "radio" name = "rightAnswer" value ="1" onChange = {this.handleChange('rightAnswer')}/><input className = "text-box" type = "text" name="answer2" value={this.state.answer2} onChange = {this.handleChange('answer2')} /><br/><br/>
@@ -87,7 +95,7 @@ class Add extends Component{
            </select>
            <br/><br/>
 
-          <button onClick = { (event) => this.clickHandler(event)}>Add</button>
+          <button className = "add-button" onClick = { (event) => this.clickHandler(event)}>Add</button>
           
       </form>
   </div>

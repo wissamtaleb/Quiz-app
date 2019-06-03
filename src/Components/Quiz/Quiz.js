@@ -3,24 +3,32 @@ import {Component} from 'react';
 import axios from 'axios';
 import QuestionFinal from '../../Classes/QuestionFinal';
 import './quiz-css.css';
+import Cookies from 'universal-cookie';
+import {BrowserRouter as Router , Link , NavLink, withRouter ,Redirect} from 'react-router-dom';
 
 class Quiz extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
 
        let myQuestion = new QuestionFinal;
         myQuestion.question = "";
         myQuestion.answerText = ["","",""];
         myQuestion.answerId = [0,0,0];
+        
         this.state = {
             question: myQuestion,
             answerValue: 0,
             isRight: null,
             submitDisabled: true,
            
-            nextDisabled: false
+            nextDisabled: false,
+
+
+            isLogged: props.isLogged,
+            
+            
         }
 
         this.radioRef = React.createRef();
@@ -57,14 +65,14 @@ class Quiz extends Component{
 
         this.setState({
             answerValue: event.target.value
-        })
-
-        if(this.state.answerValue != 0){
+        } , () => {      if(this.state.answerValue != 0){
             this.setState({
                 submitDisabled: false
             })
            
-        }
+        }})
+
+  
         
     }
 
@@ -81,9 +89,18 @@ class Quiz extends Component{
     }
 
 
+    toLogin(event){
+      this.props.navigateToHome();
+    }
+
+
 
     render(){
 
+       
+        if(!this.props.isLogged){
+            return (<h1>Your are NOT logged in <a  href="#" onClick = {(e) => this.toLogin(e)}>LogIn</a></h1>)
+        }
         var i =-1;
         console.log(this.state.question);
         console.log(this.state.answerValue);
@@ -104,7 +121,7 @@ class Quiz extends Component{
             myJsx = (<label>your answer is {this.state.isRight ? `${true}` : `${false}`}</label>)
         }
         return (<div className = "quizComponent">
-        <h1>Quiz Component</h1>
+        <h1>Quiz Component</h1><br/>
         
         <form>
         <label>{this.state.question.question}</label>

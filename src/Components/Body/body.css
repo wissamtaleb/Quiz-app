@@ -8,6 +8,9 @@
    color: white;
    margin: 0px;
    padding: 50px;
+   border-top-left-radius: 0px;
+   border-top-right-radius: 0px;
+   text-align: center;
 }
 
 .col-12{

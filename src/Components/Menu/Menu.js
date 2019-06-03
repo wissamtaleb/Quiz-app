@@ -24,9 +24,11 @@ class Menu extends Component{
                 <Link className="navbar-brand" to="/">Quiz</Link>    
               </div>
               <ul className="nav navbar-nav increase-width mx-auto">
-                <li className="nav-item"><Link className="nav-link" to="/quiz">Home</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/login">Home</Link></li>
                 <li className="nav-item"><Link className="nav-link" to="/quiz">Quiz</Link></li>
                 <li className="nav-item"><Link className="nav-link" to="/add">Add</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/signUp">SignUp</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/preferences">Preferences</Link></li>
                 
               </ul> 
             

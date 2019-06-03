@@ -1,0 +1,26 @@
+.to-delete{
+    background-color: pink;
+    color: black;
+   
+}
+
+.my-table{
+    margin: auto;
+}
+
+.search{
+    height: 100px;
+    background-color: rgb(175, 95, 95);
+    padding-top: 10px;
+    color: black;
+    border-radius: 10px;
+}
+
+.my-text-box{
+
+    border-radius: 10px;
+}
+
+.my-button{
+    border-radius: 10px;
+}
